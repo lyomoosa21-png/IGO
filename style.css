@@ -1,0 +1,638 @@
+/* ==========================================================================
+   1. RESET GLOBAL & DESIGN CORE PREMIUM
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: #0B0C10; /* Grafite Profundo / Preto Corporativo */
+    color: #FFFFFF;
+    overflow-x: hidden;
+    padding-top: 60px;   /* Espaço para o cabeçalho fixo */
+    padding-bottom: 70px; /* Espaço para a barra de navegação inferior */
+}
+
+/* Esconder páginas inativas da SPA de forma limpa */
+.app-page {
+    display: none;
+    padding: 15px;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+.app-page.active {
+    display: block;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================================================
+   2. CABEÇALHO FIXO (MAIN HEADER)
+   ========================================================================== */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #1F2833;
+    border-bottom: 1px solid #2C353F;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 100;
+}
+
+.main-header .logo {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   3. ABA 1 — ARENA DE COMBATE (DESIGN ANTI-QUEBRA DE LAYOUT)
+   ========================================================================== */
+.section-title-wrapper {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.badge {
+    font-size: 11px;
+    font-weight: 700;
+    color: #45F3FF; /* Azul de Destaque Técnico */
+    letter-spacing: 1.5px;
+}
+
+#batalha-titulo {
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 5px;
+    color: #FFFFFF;
+}
+
+.battle-arena {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1F2833;
+    border: 1px solid #2C353F;
+    border-radius: 12px;
+    padding: 15px 10px;
+    gap: 5px;
+}
+
+.competitor-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 0;
+}
+
+.avatar-wrapper {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #2C353F;
+    background-color: #0B0C10;
+}
+
+.competitor-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.name-wrapper {
+    width: 100%;
+    margin: 12px 0;
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.competitor-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.3;
+    white-space: normal;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.vs-divider {
+    font-size: 14px;
+    font-weight: 900;
+    color: #45F3FF;
+    padding: 0 10px;
+}
+
+.vote-btn {
+    width: 90%;
+    max-width: 110px;
+    background: transparent;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    padding: 8px 0;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.vote-btn:active {
+    background: #45F3FF;
+    border-color: #45F3FF;
+    color: #0B0C10;
+}
+
+.result-box {
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.blur-effect {
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+.percent-text {
+    font-size: 20px;
+    font-weight: 900;
+    color: #45F3FF;
+}
+
+.engagement-bar {
+    text-align: center;
+    margin: 15px 0;
+    font-size: 12px;
+    color: #8C96A0;
+}
+/* ==========================================================================
+   4. SEÇÃO DE COMENTÁRIOS DA ARENA
+   ========================================================================== */
+.quick-comments-section {
+    margin-top: 25px;
+    border-top: 1px solid #2C353F;
+    padding-top: 15px;
+}
+
+.quick-comments-section h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #8C96A0;
+}
+
+.comments-list {
+    max-height: 180px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+.comment-card {
+    background: #1F2833;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border-left: 3px solid #2C353F;
+}
+
+.comment-meta {
+    font-size: 11px;
+    font-weight: 700;
+    color: #45F3FF;
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-report-btn {
+    color: #FF4A4A;
+    cursor: pointer;
+}
+
+.comment-card p {
+    font-size: 13px;
+    color: #FFFFFF;
+    margin-top: 4px;
+    line-height: 1.4;
+}
+
+.comment-input-box {
+    display: flex;
+    gap: 8px;
+}
+
+.comment-input-box input {
+    flex: 1;
+    background: #0B0C10;
+    border: 1px solid #2C353F;
+    border-radius: 6px;
+    color: #FFFFFF;
+    padding: 10px;
+    font-size: 13px;
+}
+
+.comment-input-box button {
+    background: #45F3FF;
+    border: none;
+    color: #0B0C10;
+    padding: 0 15px;
+    font-weight: 700;
+    font-size: 13px;
+    border-radius: 6px;
+}
+
+/* ==========================================================================
+   5. ABA 2 — FEED SOCIAL (SONDAGENS EM TEXTO LEVE)
+   ========================================================================== */
+.feed-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.create-poll-trigger-btn {
+    background: transparent;
+    border: 1px solid #45F3FF;
+    color: #45F3FF;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+}
+
+.categories-scroll {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.categories-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.cat-pill {
+    background: #1F2833;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    color: #8C96A0;
+}
+
+.cat-pill.active {
+    background: #45F3FF;
+    color: #0B0C10;
+}
+
+.poll-card {
+    background: #1F2833;
+    border: 1px solid #2C353F;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.poll-user {
+    font-size: 12px;
+    font-weight: 700;
+    color: #8C96A0;
+    margin-bottom: 8px;
+}
+
+.poll-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.poll-option-btn {
+    width: 100%;
+    background: #0B0C10;
+    border: 1px solid #2C353F;
+    color: #FFFFFF;
+    text-align: left;
+    padding: 12px;
+    font-size: 13px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   6. ABA 3 — MUSEU IGO
+   ========================================================================== */
+.section-desc {
+    font-size: 12px;
+    color: #8C96A0;
+    margin-bottom: 20px;
+}
+
+.museum-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.museum-card {
+    background: #1F2833;
+    border: 1px solid #2C353F;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.museum-card-img-placeholder {
+    height: 40px;
+    font-size: 24px;
+    color: #45F3FF;
+}
+
+.museum-status {
+    font-size: 11px;
+    color: #45F3FF;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   7. ABA 4 — PERFIL & AUTENTICAÇÃO
+   ========================================================================== */
+.auth-wrapper {
+    text-align: center;
+    padding: 40px 10px;
+}
+
+.auth-wrapper h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.auth-wrapper p {
+    font-size: 13px;
+    color: #8C96A0;
+    margin-bottom: 25px;
+}
+
+.auth-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.auth-primary-btn {
+    background: #45F3FF;
+    border: none;
+    color: #0B0C10;
+    padding: 12px;
+    font-weight: 700;
+    border-radius: 8px;
+}
+
+.auth-secondary-btn {
+    background: transparent;
+    border: 1px solid #2C353F;
+    color: #FFFFFF;
+    padding: 12px;
+    font-weight: 700;
+    border-radius: 8px;
+}
+
+.profile-header-info {
+    text-align: center;
+    background: #1F2833;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #2C353F;
+}
+
+.profile-avatar-circle {
+    width: 60px;
+    height: 60px;
+    background: #0B0C10;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    font-size: 24px;
+}
+
+.streak-badge {
+    display: inline-block;
+    background: rgba(255, 74, 74, 0.1);
+    border: 1px solid #FF4A4A;
+    color: #FF4A4A;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.profile-stats {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.stat-box {
+    flex: 1;
+    background: #1F2833;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #2C353F;
+}
+
+.stat-box strong {
+    display: block;
+    font-size: 16px;
+    color: #45F3FF;
+}
+
+.stat-box span {
+    font-size: 11px;
+    color: #8C96A0;
+}
+
+.logout-btn {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #FF4A4A;
+    color: #FF4A4A;
+    padding: 10px;
+    font-weight: 700;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* ==========================================================================
+   8. MODAIS POPUPS SISTÉMICOS
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 200;
+}
+
+.modal-card {
+    background: #1F2833;
+    border: 1px solid #2C353F;
+    width: 100%;
+    max-width: 360px;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: #8C96A0;
+    font-size: 22px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 12px;
+}
+
+.input-group label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #8C96A0;
+}
+
+.input-group input, .poll-form input, .poll-form select {
+    background: #0B0C10;
+    border: 1px solid #2C353F;
+    padding: 10px;
+    border-radius: 6px;
+    color: #FFFFFF;
+    font-size: 13px;
+    width: 100%;
+}
+
+.checkbox-group {
+    flex-direction: row !important;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.checkbox-group input {
+    width: auto;
+    margin-top: 2px;
+}
+
+.modal-submit-btn {
+    width: 100%;
+    background: #45F3FF;
+    border: none;
+    color: #0B0C10;
+    padding: 12px;
+    font-weight: 700;
+    border-radius: 6px;
+    margin-top: 5px;
+}
+
+.poll-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ==========================================================================
+   9. BARRA DE NAVEGAÇÃO INFERIOR FIXA CORPORATIVA
+   ========================================================================== */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    background-color: #1F2833;
+    border-top: 1px solid #2C353F;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 100;
+}
+
+.nav-item {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #8C96A0;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.nav-icon {
+    font-size: 18px;
+    margin-bottom: 2px;
+}
+
+.nav-item.active {
+    color: #45F3FF;
+}
+
+/* Animação Básica de Transição */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+
